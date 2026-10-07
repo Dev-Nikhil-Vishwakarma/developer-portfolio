@@ -18,6 +18,13 @@ app.use(
 );
 app.use(express.json({ limit: '20kb' }));
 
+app.get("/", (_req, res) => {
+  res.json({
+    status: "ok",
+    message: "Portfolio API is running",
+  });
+});
+
 app.get('/api/health', (_req, res) => {
   res.json({ ok: true, service: 'portfolio-api' });
 });
