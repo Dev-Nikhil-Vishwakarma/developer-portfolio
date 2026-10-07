@@ -8,7 +8,14 @@ const port = Number(process.env.PORT ?? 5000);
 const clientUrl = process.env.CLIENT_URL ?? 'http://localhost:5173';
 const resend = new Resend(process.env.RESEND_API_KEY ?? '');
 
-app.use(cors({ origin: clientUrl }));
+
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 app.use(express.json({ limit: '20kb' }));
 
 app.get('/api/health', (_req, res) => {
@@ -64,6 +71,7 @@ function escapeHtml(value: string) {
   return value.replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character] ?? character);
 }
 
-app.listen(port, () => {
-  console.log(`Portfolio API running on http://localhost:${port}`);
+
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Portfolio API running on port ${port}`);
 });
