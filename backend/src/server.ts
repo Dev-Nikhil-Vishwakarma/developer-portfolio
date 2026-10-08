@@ -88,76 +88,233 @@ app.post('/api/contect', async (req, res) => {
       subject: `Portfolio contact from ${name.trim()}`,
 
       html: `
-       <div style="margin:0;padding:40px 20px;background:#f5f5f5;font-family:Arial,Helvetica,sans-serif;color:#171717;">
-    <div style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #e8e8e8;border-radius:18px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.06);">
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Portfolio Message</title>
+</head>
+
+<body style="margin:0;padding:0;background:#f7f7f5;font-family:Arial,Helvetica,sans-serif;color:#181818;">
+
+  <div style="width:100%;padding:48px 20px;background:#f7f7f5;box-sizing:border-box;">
+
+    <div style="
+      max-width:680px;
+      margin:0 auto;
+      background:#ffffff;
+      border:1px solid #e6e6e3;
+      border-radius:20px;
+      overflow:hidden;
+    ">
+
+      <!-- Top accent -->
+      <div style="
+        height:4px;
+        background:#181818;
+        width:100%;
+      "></div>
 
       <!-- Header -->
-      <div style="padding:32px 36px;border-bottom:1px solid #eeeeee;">
-        <div style="font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#777777;margin-bottom:10px;">
-          Portfolio Contact
+      <div style="padding:42px 44px 34px;border-bottom:1px solid #eeeeeb;">
+
+        <div style="
+          display:inline-block;
+          padding:7px 11px;
+          border:1px solid #e5e5e2;
+          border-radius:999px;
+          color:#777773;
+          font-size:10px;
+          font-weight:600;
+          letter-spacing:1.4px;
+          text-transform:uppercase;
+        ">
+          Portfolio
         </div>
 
-        <h1 style="margin:0;font-size:26px;line-height:1.3;font-weight:600;color:#111111;">
-          New message received
+        <h1 style="
+          margin:22px 0 10px;
+          font-size:30px;
+          line-height:1.2;
+          font-weight:600;
+          letter-spacing:-0.7px;
+          color:#111111;
+        ">
+          New message
         </h1>
 
-        <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#777777;">
-          Someone has contacted you through your developer portfolio.
+        <p style="
+          margin:0;
+          font-size:14px;
+          line-height:1.7;
+          color:#858581;
+        ">
+          A new person has reached out through your portfolio.
         </p>
+
       </div>
 
-      <!-- Contact information -->
-      <div style="padding:30px 36px 10px;">
+      <!-- Sender information -->
+      <div style="padding:34px 44px 8px;">
 
-        <div style="margin-bottom:22px;">
-          <div style="font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#999999;margin-bottom:7px;">
-            From
-          </div>
-
-          <div style="font-size:16px;font-weight:600;color:#171717;">
-            ${escapeHtml(name.trim())}
-          </div>
+        <div style="
+          font-size:10px;
+          font-weight:600;
+          letter-spacing:1.5px;
+          text-transform:uppercase;
+          color:#999994;
+          margin-bottom:20px;
+        ">
+          Contact details
         </div>
 
-        <div style="margin-bottom:24px;">
-          <div style="font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#999999;margin-bottom:7px;">
-            Email
-          </div>
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
 
-          <a
-            href="mailto:${escapeHtml(email.trim())}"
-            style="font-size:15px;color:#171717;text-decoration:none;border-bottom:1px solid #cccccc;padding-bottom:2px;"
-          >
-            ${escapeHtml(email.trim())}
-          </a>
-        </div>
+          <tr>
+            <td style="
+              width:50%;
+              padding:0 20px 24px 0;
+              vertical-align:top;
+            ">
+
+              <div style="
+                font-size:11px;
+                color:#999994;
+                margin-bottom:7px;
+              ">
+                Name
+              </div>
+
+              <div style="
+                font-size:15px;
+                font-weight:600;
+                color:#222222;
+              ">
+                ${escapeHtml(name.trim())}
+              </div>
+
+            </td>
+
+            <td style="
+              width:50%;
+              padding:0 0 24px 20px;
+              vertical-align:top;
+              border-left:1px solid #eeeeeb;
+            ">
+
+              <div style="
+                font-size:11px;
+                color:#999994;
+                margin-bottom:7px;
+              ">
+                Email
+              </div>
+
+              <a
+                href="mailto:${escapeHtml(email.trim())}"
+                style="
+                  font-size:14px;
+                  color:#222222;
+                  text-decoration:none;
+                  word-break:break-word;
+                "
+              >
+                ${escapeHtml(email.trim())}
+              </a>
+
+            </td>
+          </tr>
+
+        </table>
 
       </div>
 
       <!-- Message -->
-      <div style="padding:0 36px 36px;">
+      <div style="padding:18px 44px 42px;">
 
-        <div style="font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#999999;margin-bottom:10px;">
+        <div style="
+          font-size:10px;
+          font-weight:600;
+          letter-spacing:1.5px;
+          text-transform:uppercase;
+          color:#999994;
+          margin-bottom:14px;
+        ">
           Message
         </div>
 
-        <div style="padding:22px;background:#f8f8f8;border:1px solid #eeeeee;border-radius:12px;">
-          <p style="margin:0;font-size:15px;line-height:1.8;color:#333333;white-space:pre-wrap;">
+        <div style="
+          background:#fafaf9;
+          border:1px solid #e9e9e6;
+          border-radius:14px;
+          padding:24px;
+        ">
+
+          <p style="
+            margin:0;
+            font-size:15px;
+            line-height:1.85;
+            color:#333333;
+            white-space:pre-wrap;
+            word-break:break-word;
+          ">
             ${escapeHtml(message.trim())}
           </p>
+
         </div>
 
       </div>
 
       <!-- Footer -->
-      <div style="padding:20px 36px;background:#fafafa;border-top:1px solid #eeeeee;">
-        <p style="margin:0;font-size:12px;line-height:1.6;color:#999999;">
-          This message was sent through your developer portfolio contact form.
-        </p>
+      <div style="
+        padding:22px 44px;
+        border-top:1px solid #eeeeeb;
+        background:#fcfcfb;
+      ">
+
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+
+            <td style="
+              font-size:11px;
+              color:#999994;
+              line-height:1.5;
+            ">
+              Developer Portfolio
+            </td>
+
+            <td style="
+              text-align:right;
+              font-size:11px;
+              color:#b0b0ab;
+              line-height:1.5;
+            ">
+              New contact
+            </td>
+
+          </tr>
+        </table>
+
       </div>
 
     </div>
+
+    <div style="
+      max-width:680px;
+      margin:18px auto 0;
+      text-align:center;
+      font-size:10px;
+      color:#aaa9a4;
+      letter-spacing:0.3px;
+    ">
+      Sent securely from your portfolio contact form
+    </div>
+
   </div>
+
+</body>
+</html>
       `,
     });
 
