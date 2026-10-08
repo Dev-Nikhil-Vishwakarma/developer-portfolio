@@ -11,11 +11,12 @@ const resend = new Resend(process.env.RESEND_API_KEY ?? '');
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: "https://developer-portfolio-ojwm.vercel.app",
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type"],
   })
 );
+
 app.use(express.json({ limit: '20kb' }));
 
 app.get("/", (_req, res) => {
@@ -35,6 +36,8 @@ app.post('/api/contect', async (req, res) => {
     email?: unknown;
     message?: unknown;
   };
+  console.log("CONTACT REQUEST RECEIVED");
+  console.log(req.body);
 
   console.log("Contact request received");
 
