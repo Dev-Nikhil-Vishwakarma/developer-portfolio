@@ -88,27 +88,76 @@ app.post('/api/contect', async (req, res) => {
       subject: `Portfolio contact from ${name.trim()}`,
 
       html: `
-        <div style="font-family:Arial,sans-serif;max-width:640px;margin:auto;color:#111">
-          <h2>New portfolio message</h2>
+       <div style="margin:0;padding:40px 20px;background:#f5f5f5;font-family:Arial,Helvetica,sans-serif;color:#171717;">
+    <div style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #e8e8e8;border-radius:18px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.06);">
 
-          <p>
-            <strong>Name:</strong>
+      <!-- Header -->
+      <div style="padding:32px 36px;border-bottom:1px solid #eeeeee;">
+        <div style="font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#777777;margin-bottom:10px;">
+          Portfolio Contact
+        </div>
+
+        <h1 style="margin:0;font-size:26px;line-height:1.3;font-weight:600;color:#111111;">
+          New message received
+        </h1>
+
+        <p style="margin:10px 0 0;font-size:14px;line-height:1.6;color:#777777;">
+          Someone has contacted you through your developer portfolio.
+        </p>
+      </div>
+
+      <!-- Contact information -->
+      <div style="padding:30px 36px 10px;">
+
+        <div style="margin-bottom:22px;">
+          <div style="font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#999999;margin-bottom:7px;">
+            From
+          </div>
+
+          <div style="font-size:16px;font-weight:600;color:#171717;">
             ${escapeHtml(name.trim())}
-          </p>
+          </div>
+        </div>
 
-          <p>
-            <strong>Email:</strong>
+        <div style="margin-bottom:24px;">
+          <div style="font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#999999;margin-bottom:7px;">
+            Email
+          </div>
+
+          <a
+            href="mailto:${escapeHtml(email.trim())}"
+            style="font-size:15px;color:#171717;text-decoration:none;border-bottom:1px solid #cccccc;padding-bottom:2px;"
+          >
             ${escapeHtml(email.trim())}
-          </p>
+          </a>
+        </div>
 
-          <p>
-            <strong>Message:</strong>
-          </p>
+      </div>
 
-          <p style="white-space:pre-wrap;line-height:1.6">
+      <!-- Message -->
+      <div style="padding:0 36px 36px;">
+
+        <div style="font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#999999;margin-bottom:10px;">
+          Message
+        </div>
+
+        <div style="padding:22px;background:#f8f8f8;border:1px solid #eeeeee;border-radius:12px;">
+          <p style="margin:0;font-size:15px;line-height:1.8;color:#333333;white-space:pre-wrap;">
             ${escapeHtml(message.trim())}
           </p>
         </div>
+
+      </div>
+
+      <!-- Footer -->
+      <div style="padding:20px 36px;background:#fafafa;border-top:1px solid #eeeeee;">
+        <p style="margin:0;font-size:12px;line-height:1.6;color:#999999;">
+          This message was sent through your developer portfolio contact form.
+        </p>
+      </div>
+
+    </div>
+  </div>
       `,
     });
 
