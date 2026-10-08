@@ -25,11 +25,11 @@ app.get("/", (_req, res) => {
   });
 });
 
-app.get('/api/health', (_req, res) => {
-  res.json({ ok: true, service: 'portfolio-api' });
-});
+// app.get('/api/health', (_req, res) => {
+//   res.json({ ok: true, service: 'portfolio-api' });
+// });
 
-app.post('/api/contact', async (req, res) => {
+app.post('/api/health', async (req, res) => {
   const { name, email, message } = req.body as { name?: unknown; email?: unknown; message?: unknown };
   console.log("hello")
 
