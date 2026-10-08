@@ -31,6 +31,7 @@ app.get('/api/health', (_req, res) => {
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body as { name?: unknown; email?: unknown; message?: unknown };
+  console.log("hello")
 
   if (typeof name !== 'string' || name.trim().length < 2) {
     return res.status(400).json({ message: 'Please enter a valid name.' });
