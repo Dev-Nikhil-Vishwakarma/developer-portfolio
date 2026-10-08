@@ -11,7 +11,7 @@ const resend = new Resend(process.env.RESEND_API_KEY ?? '');
 
 app.use(
   cors({
-    origin: "https://developer-portfolio-ojwm.vercel.app",
+    origin: "https://developer-portfolio-bthh.vercel.app",
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type"],
   })
