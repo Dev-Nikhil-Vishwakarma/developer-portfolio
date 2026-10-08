@@ -5,7 +5,7 @@ import { Resend } from 'resend';
 
 const app = express();
 const port = Number(process.env.PORT ?? 5000);
-const clientUrl = process.env.CLIENT_URL ?? 'http://localhost:5173';
+const clientUrl = process.env.CLIENT_URL;
 const resend = new Resend(process.env.RESEND_API_KEY ?? '');
 
 
